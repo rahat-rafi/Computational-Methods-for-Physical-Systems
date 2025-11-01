@@ -1,0 +1,248 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.10.12)  24 OCT 2025 03:03
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tise.tex
+(./tise.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./iopart.cls
+Document Class: iopart 1996/06/10 v0.0 IOP Journals LaTeX article class
+(./iopart12.clo
+File: iopart12.clo 1997/01/15 v1.0 LaTeX2e file (size option)
+)
+\c@jnl=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\indentedwidth=\skip50
+\mathindent=\dimen140
+\c@eqnval=\count195
+) (./iopams.sty
+Package: iopams 1997/02/13 v1.0
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen141
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen142
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count196
+\float@exts=\toks19
+\float@box=\box51
+\@float@everytoks=\toks20
+\@floatcapt=\box52
+)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count197
+\l__pdf_internal_box=\box53
+)
+(./tise.aux)
+\openout1 = `tise.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count198
+\scratchdimen=\dimen145
+\scratchbox=\box54
+\nofMPsegments=\count199
+\nofMParguments=\count266
+\everyMPshowfont=\toks21
+\MPscratchCnt=\count267
+\MPscratchDim=\dimen146
+\MPnumerator=\count268
+\makeMPintoPDFobject=\count269
+\everyMPtoPDFconversion=\toks22
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+Underfull \hbox (badness 2735) in paragraph at lines 158--159
+[]\OT1/cmr/m/n/12 The Lippmann{Schwinger equation uses Green's functions to exp
+ress the
+ []
+
+[4] [5]
+<isw_psi_boxed.png, id=35, 1750.54pt x 1312.905pt>
+File: isw_psi_boxed.png Graphic file (type png)
+<use isw_psi_boxed.png>
+Package pdftex.def Info: isw_psi_boxed.png  used on input line 262.
+(pdftex.def)             Requested size: 214.27007pt x 160.68703pt.
+<isw_psi2_boxed.png, id=36, 1750.54pt x 1312.905pt>
+File: isw_psi2_boxed.png Graphic file (type png)
+<use isw_psi2_boxed.png>
+Package pdftex.def Info: isw_psi2_boxed.png  used on input line 269.
+(pdftex.def)             Requested size: 214.27007pt x 160.68703pt.
+ [6]
+<energy_isw.png, id=40, 1750.54pt x 1312.905pt>
+File: energy_isw.png Graphic file (type png)
+<use energy_isw.png>
+Package pdftex.def Info: energy_isw.png  used on input line 282.
+(pdftex.def)             Requested size: 433.62pt x 325.20042pt.
+ [7 <./isw_psi_boxed.png (PNG copy)> <./isw_psi2_boxed.png (PNG copy)>]
+<fsw_psi_boxed.png, id=47, 1722.435pt x 1291.82625pt>
+File: fsw_psi_boxed.png Graphic file (type png)
+<use fsw_psi_boxed.png>
+Package pdftex.def Info: fsw_psi_boxed.png  used on input line 295.
+(pdftex.def)             Requested size: 214.27007pt x 160.6894pt.
+<fsw_psi2_boxed.png, id=48, 1722.435pt x 1291.82625pt>
+File: fsw_psi2_boxed.png Graphic file (type png)
+<use fsw_psi2_boxed.png>
+Package pdftex.def Info: fsw_psi2_boxed.png  used on input line 302.
+(pdftex.def)             Requested size: 214.27007pt x 160.6894pt.
+ [8 <./energy_isw.png (PNG copy)>]
+<pw_psi_boxed.png, id=52, 1750.54pt x 1312.905pt>
+File: pw_psi_boxed.png Graphic file (type png)
+<use pw_psi_boxed.png>
+Package pdftex.def Info: pw_psi_boxed.png  used on input line 319.
+(pdftex.def)             Requested size: 214.27007pt x 160.68703pt.
+<pw_psi2_boxed.png, id=53, 1722.435pt x 1291.82625pt>
+File: pw_psi2_boxed.png Graphic file (type png)
+<use pw_psi2_boxed.png>
+Package pdftex.def Info: pw_psi2_boxed.png  used on input line 326.
+(pdftex.def)             Requested size: 214.27007pt x 160.6894pt.
+ [9 <./fsw_psi_boxed.png (PNG copy)> <./fsw_psi2_boxed.png (PNG copy)>]
+<energy_pw.png, id=57, 1750.54pt x 1312.905pt>
+File: energy_pw.png Graphic file (type png)
+<use energy_pw.png>
+Package pdftex.def Info: energy_pw.png  used on input line 339.
+(pdftex.def)             Requested size: 433.62pt x 325.20042pt.
+ [10 <./pw_psi_boxed.png (PNG copy)> <./pw_psi2_boxed.png (PNG copy)>]
+<qw_psi_boxed.png, id=61, 1722.435pt x 1291.82625pt>
+File: qw_psi_boxed.png Graphic file (type png)
+<use qw_psi_boxed.png>
+Package pdftex.def Info: qw_psi_boxed.png  used on input line 352.
+(pdftex.def)             Requested size: 214.27007pt x 160.6894pt.
+<qw_psi2_boxed.png, id=62, 1722.435pt x 1291.82625pt>
+File: qw_psi2_boxed.png Graphic file (type png)
+<use qw_psi2_boxed.png>
+Package pdftex.def Info: qw_psi2_boxed.png  used on input line 359.
+(pdftex.def)             Requested size: 214.27007pt x 160.6894pt.
+ [11 <./energy_pw.png (PNG copy)>]
+<dw_psi.png, id=66, 1750.54pt x 1312.905pt>
+File: dw_psi.png Graphic file (type png)
+<use dw_psi.png>
+Package pdftex.def Info: dw_psi.png  used on input line 373.
+(pdftex.def)             Requested size: 433.62pt x 325.20042pt.
+ [12 <./qw_psi_boxed.png (PNG copy)> <./qw_psi2_boxed.png (PNG copy)>] [13 <./d
+w_psi.png (PNG copy)>]
+[14] (./tise.bbl) [15] (./tise.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 2385 strings out of 476182
+ 33911 string characters out of 5795594
+ 1934975 words of memory out of 5000000
+ 24382 multiletter control sequences out of 15000+600000
+ 568043 words of font info for 75 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 57i,9n,65p,981b,401s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msbm7.pfb>
+Output written on tise.pdf (15 pages, 752603 bytes).
+PDF statistics:
+ 164 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+

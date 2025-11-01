@@ -1,0 +1,71 @@
+\section{Results}
+
+\subsection{Infinite Square Well}
+The first three eigenfunctions of the infinite square potential well are presented in Fig.~1. The solutions correspond to the ground state ($n=1$), first excited state ($n=2$), and second excited state ($n=3$). As expected, the wavefunctions vanish exactly at the boundaries of the well, reflecting the impenetrable nature of the infinite barriers. The eigenfunctions exhibit sinusoidal oscillations, with the number of internal nodes increasing with the quantum number $n$. The associated energy eigenvalues grow quadratically with $n$, in accordance with the analytical expression
+\begin{equation}
+E_n = \frac{\hbar^2 \pi^2 n^2}{2 m a^2}.
+\end{equation}
+This confirms that the shooting method reproduces the analytic standing-wave solutions with high accuracy.
+
+\subsection{Finite Square Well}
+Figure~2 illustrates the eigenfunctions of a particle confined within a finite square well of depth $V_0$. Inside the well, the solutions maintain sinusoidal character, while outside the well boundaries the wavefunctions decay exponentially, reflecting quantum tunneling into the classically forbidden region. The ground state ($n=1$) is symmetric, the first excited state ($n=2$) is antisymmetric, and the second excited state ($n=3$) again exhibits symmetry. The presence of exponentially decaying tails distinguishes the finite well from the infinite case and demonstrates tunneling, a hallmark of quantum mechanics.
+
+\subsection{Parabolic Well (Quantum Harmonic Oscillator)}
+The eigenfunctions of the parabolic potential $V(x) = \tfrac{1}{2} m \omega^2 x^2$ are shown in Fig.~3. The ground state is symmetric about the origin with no internal nodes, while the first excited state is antisymmetric with one node at the center, and the second excited state is symmetric with two nodes. The wavefunctions extend further from the origin with increasing quantum number, reflecting higher energy. Importantly, the quantized energies are equally spaced, in contrast with the quadratic spacing of the square well:
+\begin{equation}
+E_n = \hbar \omega \left(n + \tfrac{1}{2}\right).
+\end{equation}
+This uniform spacing and alternating parity confirm the expected behavior of the harmonic oscillator.
+-------------------------------------------------------------------------------------------------------
+isw
+The general behavior of wavefunction for infinite square well is reflected in Fig-1. For first five eigenfunctions are presented here. These solutions correspond to the ground state ($n=1$), first excited state ($n=2$), second excited state ($n=3$), third excited state ($n=4$) and fourth excited state ($n=5$). At the boundaries of the well, the wavefunctions vanish in accordance with the analytical solutions. This reflects the impenetrability of the barriers in infinite square well. The psi2 vs x graph also depicts the acceptance with the analytic counterparts with sinusoidal oscillations with the number of nodes increasing with the number of states. In the energy ladder graph the expected energy eigenvalues grew in quadratic fassion as per the theoretical values confirming the high accuracy of shooting method.
+
+fsw
+In Fig-2, the confinement of a particle in a finite square well is presented with the eigenfunctions. Outside the boundary of the well, the wavefunctions are decaying exponentially while inside the well, these eigenfunctions are sinusoidal. This clearly represents the quantum tunneling phenomenon. The periodic nature of symmetric and antisymmetric nature is exhibited. The normalized wavefunctions also are in according to the analytical solutions.
+
+pw
+The wavefunctions for the parabolic well or quantum harmonic oscillator are shown in Fig-3. The confined potential is plotted as a bold black curve. The symmetry is seen in the ground state while the next states alternate between symmetry and antisymmetry in parity. In here: antisymmetric for $n=2$, symmetric for $n=3$ and so on. The energy eigenvalues are equally spaced where in the square wells, these were in contrast. The probability densities $|\psi(x)|^2$ is broadening with increasing energy states.
+
+qw
+In Fig-4, eigenfunctions of the quartic potential, $V(x) = \alpha x^4$, are displayed. Compared to the parabolic potential, this produces more tightly confined wavefunctions close to origin. The eigenfunctions preserve parity symmetry by alternating even and odd states.
+
+df
+The bound state wavefunction for delta function potential is presented in Fig-5. The potential is represented as a charp localized well pointing downward at $x=0$. This numerical solution displays an exponential decay in both direction from the origin and there will be only one eigenfunction with clear agreement with the theoretical expression.
+
+-------------------------------------------------------------------------------------------------------------------------
+The eigenfunctions of a quartic potential, $V(x) = \alpha x^4$, are shown in Fig.~\ref{fig:qw}. Compared to the parabolic case, the quartic potential produces more tightly confined wavefunctions near the origin and sharper confinement at large $|x|$. The eigenfunctions preserve parity symmetry (alternating even and odd states), but the energy spectrum is not evenly spaced. Approximate WKB analysis predicts the asymptotic form
+\begin{equation}
+E_n \propto \left(n + \tfrac{1}{2}\right)^{4/3},
+\end{equation}
+indicating sublinear level spacing compared to the quadratic growth of the infinite well and the linear spacing of the harmonic oscillator. The numerical results confirm this trend, with closely spaced low-energy levels and broader separation for higher states.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{qw_psi_boxed.png}
+    \caption{Eigenfunctions of a particle in a quartic potential. The states show parity symmetry and increasing oscillations with $n$. The energy levels are not equally spaced, consistent with the $n^{4/3}$ dependence.}
+    \label{fig:qw}
+\end{figure}
+
+\subsection{Delta-function Potential}
+
+The bound-state wavefunction of an attractive delta-function potential is shown in Fig.~\ref{fig:dw}. The potential is represented as a sharp localized well at $x=0$. The numerical solution shows an exponentially decaying form away from the origin:
+\begin{equation}
+\psi(x) = \sqrt{\kappa}\, e^{-\kappa |x|}, \quad \kappa = \frac{m g}{\hbar^2},
+\end{equation}
+with a single bound state. The corresponding energy is given by
+\begin{equation}
+E = -\frac{m g^2}{2\hbar^2}.
+\end{equation}
+The numerical solution agrees with this analytic expression, confirming the validity of the method.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{dw_psi.png}
+    \caption{Ground-state eigenfunction of the attractive delta-function potential. Only a single bound state exists, with exponential localization around $x=0$.}
+    \label{fig:dw}
+\end{figure}
+
+\subsection{Summary}
+
+Across all potentials studied, the numerical shooting-to-midpoint method successfully reproduced the characteristic features of each confinement type. Sinusoidal standing waves in the infinite well, tunneling in the finite well, equal spacing in the harmonic oscillator, nonuniform $n^{4/3}$ scaling in the quartic potential, and the unique single bound state of the delta-function potential were all accurately captured. These results confirm the robustness of the numerical approach and its ability to model a wide range of quantum systems beyond analytically solvable cases.
+

@@ -1,0 +1,320 @@
+%
+\documentclass[12pt]{iopart}
+\newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
+\usepackage{iopams} 
+\usepackage{amsmath}
+ \usepackage{float}
+\usepackage{graphicx}
+
+%\usepackage{epsfig}
+
+\begin{document}
+
+\title[PHY 711: Project report]{A numerical approach to the one-dimensional Time-Independent Schr\"{o}dinger Equation}
+
+\author{Sk Rahat Bin Salam}
+\address{The University of Southern Mississippi,\\
+School of Mathematics and Natural Sciences, Hattiesburg, Mississippi, 
+39406}
+\ead{SkRahat.BinSalam@usm.edu}
+
+\bibliographystyle{softe1lwbosa}
+
+\begin{abstract}
+
+To solve the one-dimensional, time-independent Schrödinger equation numerically, the shooting method is employed. This second-order differential equation constitutes a boundary-value problem where physical solutions, or wave functions, exist only for a set of discrete eigenvalues or energies. Shooting algorithm transforms this to an initial value problem, the 4th order Runge-Kutta method is applied to integrate and Simpson's rule is used to normalize the wave functions. For the case of an infinite square well, the standard shooting method is carried out. A more refined technique, shooting to midpoint is adopted for symmetric potentials-the parabolic well and finite square well. This algorithm is further extended for quartic and delta-function potentials. In all cases, numerically computed eigenvalues and eigenfunctions are compared with the analytical solutions and show the accuracy of this computational approach.
+
+
+
+\end{abstract}
+
+\section{Introduction}
+\label{introduction}
+
+
+The principles of quantum mechanics govern the behavior of particles at microscopic level. The one-dimensional time-independent Schrödinger equation explains how the stationary states of these microscopic particles of mass $m$ behave for a potential $V(x)$. The equation is expressed as:
+\begin{equation}
+	-\frac{\hbar^2}{2m}\frac{d^2\psi(x)}{dx^2} + V(x)\psi(x) = E\psi(x)
+\end{equation}
+Here, $\psi(x)$ is the wavefunction, $\hbar$ is the reduced Planck constant, which contains all the information about the state of the particle, and $E$ is the total energy of that state. Rearranging gives
+\begin{equation}
+	\frac{d^2\psi(x)}{dx^2} = -k^2 \psi(x), \qquad 
+	k^2 = \frac{2m}{\hbar^2}(E - V(x)).
+\end{equation}This is an eigenvalue equation where the solutions, or eigenfunctions, only exist for a discrete set of energy eigenvalues $E$. These quantized energies are the landmarks that differentiates quantum mechanics from the continuous energy spectrum in classical system.
+To simplify the procedure, the Schrödinger equation is often expressed in dimensionless form:
+\begin{equation}
+\frac{d^2\psi(x)}{dx^2} = \gamma^2 \big(v(x) - \epsilon \big)\psi(x),
+\end{equation}
+where
+\begin{equation}
+\gamma^2 = \frac{2ma^2V_0}{\hbar^2}, \qquad 
+V(x) = V_0 v(x), \qquad 
+\epsilon = \frac{E}{V_0}.
+\end{equation}
+This framework makes the calculation of eigenvalues and eigenfunctions easier for different kind of potentials. The parameter $\gamma$ characterizes the "quantumness" of the system. For this dimensionless equation to be consistent, the variable $x$ is typically understood to be rescaled by the characteristic length $a$. The solutions to this equation possess a definite parity, which sets the conditions required at the midpoint (chosen as $x=0$):
+\begin{itemize}
+	\item Even solutions must satisfy $\psi(-x) = \psi(x)$, which implies a zero slope at the center: $\psi'(0) = 0$.
+	\item Odd solutions must satisfy $\psi(-x) = -\psi(x)$, which implies the wavefunction is zero at the center: $\psi(0) = 0$.
+\end{itemize}
+
+\subsection{The Infinite Square Well}
+
+The infinite square well or a particle in a box is one of the simplest model in quantum mechanics. It describes a particle trapped between two impenetrable barriers.
+\begin{itemize}
+	\item Potential: The potential $V(x)$ is defined as zero inside a region of length $L$ and infinite everywhere else.
+	\begin{equation}
+		V(x) = 
+		\begin{cases}
+			0, & 0 < x < a, \\
+			\infty, & \text{otherwise}.
+		\end{cases}
+	\end{equation}
+	Inside the well, the equation reduces to
+	\begin{equation}
+		\frac{d^2\psi(x)}{dx^2} = -k^2\psi(x), \quad k^2 = \frac{2mE}{\hbar^2}.
+	\end{equation}
+	\item Boundary Conditions: Because the depth of the potential well is infinite, the particle cannot exist at or beyond them. This criteria sets the wavefunction to be zero at the boundary of the well.
+	\begin{equation}
+		\psi(0) = 0 \quad \text{and} \quad \psi(L) = 0
+	\end{equation}
+	It yields solutions
+	\begin{equation}
+		\psi_n(x) = A\sin\!\left(\frac{n\pi x}{a}\right), \quad n=1,2,3,\ldots
+	\end{equation}
+	with discrete energies
+	\begin{equation}
+		E_n = \frac{\hbar^2 n^2\pi^2}{2ma^2}.
+	\end{equation}
+	
+\end{itemize}
+
+\subsection{The Finite Square Well}
+
+The finite square well is a more realistic confined physical model where the potential barriers have a finite height, $V_0$. A famous and profound quantum phenomenon is observed because of this small change which is known as tunneling.
+\begin{itemize}
+	\item Potential: For a well centered at the origin with width $2a$, the potential is:
+	\begin{equation}
+		V(x) =
+		\begin{cases}
+			-V_0, &  |x| < a \\
+			0,    &  |x| \geq a.
+		\end{cases}
+	\end{equation}
+	\item Boundary Conditions: For bound states ($E < 0$), the wavefunction is no longer forced to be zero at the walls. Instead, it decays exponentially into the edge of boundary region. The conditions require that both $\psi(x)$ and its derivative $\psi'(x)$ be continuous at the boundaries ($x = \pm a$) and that the wavefunction vanishes at infinity ($\psi(x) \to 0$ as $x \to \pm\infty$).
+	For bound states ($E<0$), the solutions are oscillatory inside the well and exponential outside. Applying continuity conditions leads to transcendental equations:
+	\begin{equation}
+		\tan(ka) = \frac{\kappa}{k} \quad \text{(even)}, \qquad -\cot(ka) = \frac{\kappa}{k} \quad \text{(odd)},
+	\end{equation}
+	with
+	\begin{equation}
+		k = \frac{\sqrt{2m(E+V_0)}}{\hbar}, \quad \kappa = \frac{\sqrt{-2mE}}{\hbar}.
+	\end{equation}
+\end{itemize}
+
+\subsection{The Parabolic Well: The Quantum Harmonic Oscillator}
+
+One of the most important model system in all of physics is the quantum harmonic oscillator or the parabolic potential well. It is used to approximate the behavior of systems near a point of stable equilibrium, like the vibration of atoms in a molecule.
+\begin{itemize}
+	\item Potential: The potential energy increases quadratically with displacement from the origin:
+	\begin{equation}
+		V(x) = \frac{1}{2}m\omega^2x^2
+	\end{equation}
+	\item Boundary Conditions: To be physically realistic, the wavefunction must be normalizable, which means it must vanish at infinity.
+	\begin{equation}
+		\psi(x) \to 0 \quad \text{as} \quad x \to \pm\infty
+	\end{equation}
+	The eigenfunctions are
+	\begin{equation}
+		\psi_n(x) = N_n e^{-\tfrac{m\omega x^2}{/2\hbar}} H_n\!\left(\sqrt{\tfrac{m\omega}{/hbar}}\,x\right),
+	\end{equation}
+	with Hermite polynomials $H_n$, and equally spaced energies
+	\begin{equation}
+		E_n = \hbar\omega\left(n+\tfrac{1}{/2}\right).
+	\end{equation}
+\end{itemize}
+
+\subsection{Quartic Potential}
+The quartic potential is
+\begin{equation}
+	V(x) = \alpha x^4.
+\end{equation}
+No closed-form solutions exist, but numerical integration yields bound states with eigenfunctions of definite parity and energies that increase faster than linearly with $n$.
+
+\subsection{Delta-Function Potential}
+The delta-function potential is
+\begin{equation}
+	V(x) = -\lambda \delta(x).
+\end{equation}
+The wavefunction is continuous, but its derivative satisfies
+\begin{equation}
+	\psi'(0^+) - \psi'(0^-) = -\frac{2m\lambda}{\hbar^2}\psi(0).
+\end{equation}
+There is a single bound state:
+\begin{equation}
+	\psi(x) = \sqrt{\kappa}\,e^{-\kappa |x|}, \quad \kappa = \frac{m\lambda}{\hbar^2},
+\end{equation}
+with bound-state energy
+\begin{equation}
+	E = -\frac{m\lambda^2}{2\hbar^2}.
+\end{equation}
+
+\section{Method}
+
+The central aim of this study is to numerically solve the one-dimensional time-independent Schrödinger equation by transforming the boundary-value problem into an initial-value problem. This allows the transformation to be handled using precise numerical framework. To achieve this, the shooting method, the shooting-to-midpoint refinement, the fourth-order Runge--Kutta (RK4) integration, Simpson’s rule for normalization, and the bisection method for eigenvalue refinement are combined. Together, these techniques provide a consistent algorithm that can be applied to a variety of potentials.
+
+\subsection{Shooting Method}
+The Schrödinger equation is a second-order boundary-value problem. The shooting method transforms it into an initial-value problem by imposing trial boundary conditions at one end of the computational domain:
+\begin{equation}
+	\psi(x_\text{min}) = 0, \quad \psi'(x_\text{min}) = 1.
+\end{equation}
+The wavefunction is then propagated across the domain for a trial energy $E$. For arbitrary $E$, the solution fails to satisfy the boundary condition at the far end. Only for discrete eigenvalues does the solution satisfy both boundary conditions, yielding physically valid eigenfunctions.
+
+\subsection{Shooting-to-Midpoint Method}
+For symmetric potentials, efficiency is improved by integrating from both ends of the domain toward the midpoint $x=0$. The parity conditions here define the mismatch:
+\begin{itemize}
+	\item Even states: $\psi'(0) = 0$,
+	\item Odd states: $\psi(0) = 0$.
+\end{itemize}
+This approach simplifies the mismatch function and increases computational efficiency, while ensuring that eigenfunctions are continuous across the full interval $[-L,L]$. The bisection method refines the eigenvalue found from the change of sign in $M(E)$.
+
+
+\subsection{Runge--Kutta Method (RK4)}
+Numerical propagation is performed using the classical fourth-order Runge--Kutta method. For an equation
+\begin{equation}
+	\frac{dy}{dx} = f(x,y),
+\end{equation}
+the RK4 scheme evaluates
+\begin{eqnarray}
+	\label{eq:rk4nlist}
+	k_1= h [f(x_n,y_n)] \nonumber \\
+	k_2= h [f(x_n+\frac{h}{2},y_n+\frac{k_1}{2})] \nonumber \\
+	k_3= h [f(x_n+\frac{h}{2},y_i+\frac{k_2}{2})] \nonumber \\
+	k_4= h [f(x_n+h, y_n+k_3)] \nonumber \\
+\end{eqnarray}
+
+The global error is of order $\mathcal{O}(h^4)$, making this method highly suitable for oscillatory wavefunctions.
+
+\subsection{Simpson’s Rule for Normalization}
+Normalization of eigenfunctions requires
+\begin{equation}
+	\int_{-\infty}^{\infty} |\psi(x)|^2 dx = 1.
+\end{equation}
+On a uniform grid, this is approximated by the composite Simpson’s rule:
+\begin{equation}
+	I \approx \frac{h}{3} \Big[ f(x_0) + 4\sum_{\text{odd}} f(x_i) + 2\sum_{\text{even}} f(x_i) + f(x_N) \Big],
+\end{equation}
+with $f(x)=|\psi(x)|^2$. The normalization constant is then applied to rescale $\psi(x)$.
+
+\subsection{Bisection Method}
+Eigenvalues are obtained by finding roots of the mismatch function $M(E)$. If $M(E)$ changes sign in $[E_a,E_b]$, then a root exists in the interval. The midpoint is
+\begin{equation}
+	E_c = \frac{E_a + E_b}{2}.
+\end{equation}
+The interval is updated depending on the sign of $M(E_c)$. Iteration continues until
+\begin{equation}
+	|E_b - E_a| < \epsilon,
+\end{equation}
+ensuring convergence to the eigenvalue within the specified tolerance.
+
+\section {Result}
+
+\subsection{Infinite square well}
+The general behavior of wavefunction for infinite square well is reflected in Fig-1. For first five eigenfunctions are presented here. These solutions correspond to the ground state ($n=1$), first excited state ($n=2$), second excited state ($n=3$), third excited state ($n=4$) and fourth excited state ($n=5$). At the boundaries of the well, the wavefunctions vanish in accordance with the analytical solutions. This reflects the impenetrability of the barriers in infinite square well. 
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{isw_psi.png}
+	
+	
+\end{figure}
+
+The psi2 vs x graph also depicts the acceptance with the analytic counterparts with sinusoidal oscillations with the number of nodes increasing with the number of states.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{isw_psi2.png}
+	
+\end{figure}
+
+In the energy ladder graph the expected energy eigenvalues grew in quadratic fassion as per the theoretical values confirming the high accuracy of shooting method.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{energy_isw.png}
+	
+\end{figure}
+
+\subsection{Finite square well}
+In Fig-2, the confinement of a particle in a finite square well is presented with the eigenfunctions. Outside the boundary of the well, the wavefunctions are decaying exponentially while inside the well, these eigenfunctions are sinusoidal.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{fsw_psi_boxed.png}
+	
+\end{figure}
+
+This clearly represents the quantum tunneling phenomenon. The periodic nature of symmetric and antisymmetric nature is exhibited. The normalized wavefunctions also are in according to the analytical solutions.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{fsw_psi2_boxed.png}
+	
+\end{figure}
+
+\subsection{Parabolic well}
+The wavefunctions for the parabolic well or quantum harmonic oscillator are shown in Fig-3.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{pw_psi_boxed.png}
+	
+\end{figure}
+
+The confined potential is plotted as a bold black curve. The symmetry is seen in the ground state while the next states alternate between symmetry and antisymmetry in parity. In here: antisymmetric for $n=2$, symmetric for $n=3$ and so on.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{pw_psi2_boxed.png}
+	
+\end{figure}
+
+The energy eigenvalues are equally spaced where in the square wells, these were in contrast. The probability densities $|\psi(x)|^2$ is broadening with increasing energy states.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{energy_pw.png}
+	
+\end{figure}
+
+
+\subsection{Quartic potential}
+In Fig-4, eigenfunctions of the quartic potential, $V(x) = \alpha x^4$, are displayed. Compared to the parabolic potential, this produces more tightly confined wavefunctions close to origin.
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{qw_psi_boxed.png}
+	
+\end{figure}
+
+The eigenfunctions preserve parity symmetry by alternating even and odd states.
+
+
+\begin{figure}[H]
+	\includegraphics[width=6in]{qw_psi2_boxed.png}
+	
+\end{figure}
+
+\subsection{Delta-function potential}
+The bound state wavefunction for delta function potential is presented in Fig-5. The potential is represented as a charp localized well pointing downward at $x=0$. This numerical solution displays an exponential decay in both direction from the origin and there will be only one eigenfunction with clear agreement with the theoretical expression.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{dw_psi.png}
+	
+\end{figure}
+
+\section{Conclusion}
+
+The shooting method was used  at the beginning of the work for the potential of infinite square well in one-dimensional time-independent Schrodinger equation and was refined this method later to shooting-to-midpoint method for other potentials. With fourth order Runge-Kutta method and Simpson's rule and bisection technique were utilized in this algorithm to numerically solve the problem. Parity-based boundary conditions were applied to certain potentials carefully. The algorithm reformulates the boundary value problem into an initial value problem and successfully calculated the eigenvalues and eigenfunctions for different potentials. ~\cite{griffith}
+
+For infinte square well, the method accurately reproduced the expected sinusoidal function like standing wave solutions confined between rigid walls with energy levels scaling proportional to the square of the number of energy states. A little different oscillatory behavior was seen in the case for finite square well where near outside the well, exponential decay was observed demonstrating quantum tunneling. In potential well, the algorithm was consistent with the alternating parity and evenly spaced energy eigenvalues. For anharmonic quartic potential and delta function potential, the method captured the localized bound states.
+
+In all the cases, the numerically obtained eigenvalues and eigenfunctions were consistent with the analytic solutions. Beyond reproducing highly accurate results, this developed framework provides a reliable, precise approach for investigating wavefunctions and energy states for any arbitrary potential where analytical solutions are intractable.
+
+
+%\pagebreak
+
+\bibliography{tise}
+
+\end{document}

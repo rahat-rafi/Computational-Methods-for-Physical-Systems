@@ -1,0 +1,30 @@
+\begin{thebibliography}{1}
+
+\bibitem{griffith}
+D.~J. Griffiths, {\em Introduction to Quantum Mechanics}, 2 ed. (Pearson
+  Prentice Hall, 2004).
+
+\bibitem{LEHTOVAARA2007148}
+L. Lehtovaara, J. Toivanen, and J. Eloranta, ``Solution of time-independent
+  Schr{\"o}dinger equation by the imaginary time propagation method,'' Journal
+  of Computational Physics {\bf 221,} 148--157 (2007).
+
+\bibitem{becerril2008}
+R. Becerril, F. Guzm{\'a}n, A. Rend{\'o}n-Romero, and S. Valdez, ``Solving the
+  time-dependent Schr{\"o}dinger equation using finite difference methods,''
+  Revista mexicana de f{\'\i}sica E {\bf 54,} 120--132 (2008).
+
+\bibitem{koonin}
+S.~E. Koonin and D.~C. Meredith, {\em Computational Physics (Fortran Version)}
+  (Westview Press, 1990).
+
+\bibitem{INDJIN199587}
+D. Indjin, G. Todorović, V. Milanović, and Z. Ikonić, ``On numerical
+  solution of the Schrödinger equation: the shooting method revisited,''
+  Computer Physics Communications {\bf 90,} 87--94 (1995).
+
+\bibitem{numrec}
+W. Press, S. Teukolsky, W. Vetterling, and B. Flannery, {\em Numerical Recipes
+  in Fortran 77 (2nd ed.)} (Cambridge University Press, 1992).
+
+\end{thebibliography}
