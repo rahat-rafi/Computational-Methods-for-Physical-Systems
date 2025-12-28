@@ -1,0 +1,271 @@
+
+===== BASELINE RUN: constant w =  0.10 =====
+iter=    5000  wrel=  0.10  dpmx= 3.34281E-03  domx= 9.36107E-05
+iter=   10000  wrel=  0.10  dpmx= 1.34725E-03  domx= 2.96982E-05
+iter=   15000  wrel=  0.10  dpmx= 8.88721E-04  domx= 1.56053E-05
+iter=   20000  wrel=  0.10  dpmx= 6.61612E-04  domx= 1.00221E-05
+iter=   25000  wrel=  0.10  dpmx= 5.27824E-04  domx= 7.14834E-06
+iter=   30000  wrel=  0.10  dpmx= 4.40105E-04  domx= 5.43611E-06
+iter=   35000  wrel=  0.10  dpmx= 3.78320E-04  domx= 4.31730E-06
+iter=   40000  wrel=  0.10  dpmx= 3.32332E-04  domx= 3.53821E-06
+iter=   45000  wrel=  0.10  dpmx= 2.96470E-04  domx= 2.96971E-06
+iter=   50000  wrel=  0.10  dpmx= 2.67492E-04  domx= 2.53967E-06
+iter=   55000  wrel=  0.10  dpmx= 2.43408E-04  domx= 2.20495E-06
+iter=   60000  wrel=  0.10  dpmx= 2.22962E-04  domx= 1.93828E-06
+iter=   65000  wrel=  0.10  dpmx= 2.05328E-04  domx= 1.72170E-06
+iter=   70000  wrel=  0.10  dpmx= 1.89934E-04  domx= 1.54291E-06
+iter=   75000  wrel=  0.10  dpmx= 1.76367E-04  domx= 1.39324E-06
+iter=   80000  wrel=  0.10  dpmx= 1.64319E-04  domx= 1.26645E-06
+iter=   85000  wrel=  0.10  dpmx= 1.53547E-04  domx= 1.15789E-06
+iter=   90000  wrel=  0.10  dpmx= 1.43857E-04  domx= 1.06408E-06
+iter=   95000  wrel=  0.10  dpmx= 1.35099E-04  domx= 9.82329E-07
+iter=  100000  wrel=  0.10  dpmx= 1.27149E-04  domx= 9.10563E-07
+iter=  105000  wrel=  0.10  dpmx= 1.19906E-04  domx= 8.47134E-07
+iter=  110000  wrel=  0.10  dpmx= 1.13283E-04  domx= 7.90730E-07
+iter=  115000  wrel=  0.10  dpmx= 1.07208E-04  domx= 7.40289E-07
+iter=  120000  wrel=  0.10  dpmx= 1.01620E-04  domx= 6.94950E-07
+iter=  125000  wrel=  0.10  dpmx= 9.64655E-05  domx= 6.54001E-07
+iter=  130000  wrel=  0.10  dpmx= 9.17023E-05  domx= 6.16856E-07
+iter=  135000  wrel=  0.10  dpmx= 8.72881E-05  domx= 5.83024E-07
+iter=  140000  wrel=  0.10  dpmx= 8.31892E-05  domx= 5.52093E-07
+iter=  145000  wrel=  0.10  dpmx= 7.93753E-05  domx= 5.23715E-07
+iter=  150000  wrel=  0.10  dpmx= 7.58206E-05  domx= 4.97593E-07
+iter=  155000  wrel=  0.10  dpmx= 7.25019E-05  domx= 4.73475E-07
+iter=  160000  wrel=  0.10  dpmx= 6.93973E-05  domx= 4.51144E-07
+iter=  165000  wrel=  0.10  dpmx= 6.64884E-05  domx= 4.30411E-07
+iter=  170000  wrel=  0.10  dpmx= 6.37601E-05  domx= 4.11116E-07
+iter=  175000  wrel=  0.10  dpmx= 6.11958E-05  domx= 3.93115E-07
+iter=  180000  wrel=  0.10  dpmx= 5.87830E-05  domx= 3.76286E-07
+iter=  185000  wrel=  0.10  dpmx= 5.65096E-05  domx= 3.60520E-07
+iter=  190000  wrel=  0.10  dpmx= 5.43643E-05  domx= 3.45721E-07
+iter=  195000  wrel=  0.10  dpmx= 5.23379E-05  domx= 3.31805E-07
+iter=  200000  wrel=  0.10  dpmx= 5.04203E-05  domx= 3.18698E-07
+Run finished for extra1_basic_field_200K_step10.dat, final dpmx= 5.04203E-05 domx= 3.18698E-07
+
+===== SWITCHED-w RUN: w=  0.10 then   1.00 after iter    20000 =====
+iter=    5000  wrel=  0.10  dpmx= 3.34281E-03  domx= 9.36107E-05
+iter=   10000  wrel=  0.10  dpmx= 1.34725E-03  domx= 2.96982E-05
+iter=   15000  wrel=  0.10  dpmx= 8.88721E-04  domx= 1.56053E-05
+iter=   20000  wrel=  0.10  dpmx= 6.61612E-04  domx= 1.00221E-05
+iter=   25000  wrel=  1.00  dpmx= 2.03500E-03  domx= 2.26820E-05
+iter=   30000  wrel=  1.00  dpmx= 8.88080E-04  domx= 8.91228E-06
+iter=   35000  wrel=  1.00  dpmx= 4.82998E-04  domx= 4.62945E-06
+iter=   40000  wrel=  1.00  dpmx= 2.79095E-04  domx= 2.62787E-06
+iter=   45000  wrel=  1.00  dpmx= 1.63462E-04  domx= 1.52616E-06
+iter=   50000  wrel=  1.00  dpmx= 9.69791E-05  domx= 8.79726E-07
+iter=   55000  wrel=  1.00  dpmx= 5.84698E-05  domx= 4.95237E-07
+iter=   60000  wrel=  1.00  dpmx= 4.01686E-05  domx= 2.68902E-07
+iter=   65000  wrel=  1.00  dpmx= 2.87558E-05  domx= 1.38657E-07
+iter=   70000  wrel=  1.00  dpmx= 2.00336E-05  domx= 6.60597E-08
+iter=   75000  wrel=  1.00  dpmx= 1.36170E-05  domx= 2.72914E-08
+iter=   80000  wrel=  1.00  dpmx= 9.04945E-06  domx= 8.65175E-09
+iter=   85000  wrel=  1.00  dpmx= 5.88923E-06  domx= 5.46711E-09
+iter=   90000  wrel=  1.00  dpmx= 3.75770E-06  domx= 4.60750E-09
+iter=   95000  wrel=  1.00  dpmx= 2.35318E-06  domx= 5.04800E-09
+iter=  100000  wrel=  1.00  dpmx= 1.44788E-06  domx= 4.52214E-09
+iter=  105000  wrel=  1.00  dpmx= 8.78017E-07  domx= 3.61857E-09
+iter=  110000  wrel=  1.00  dpmx= 5.30741E-07  domx= 2.70511E-09
+iter=  115000  wrel=  1.00  dpmx= 3.22539E-07  domx= 1.92836E-09
+iter=  120000  wrel=  1.00  dpmx= 1.95840E-07  domx= 1.32511E-09
+iter=  125000  wrel=  1.00  dpmx= 1.18225E-07  domx= 8.83150E-10
+iter=  130000  wrel=  1.00  dpmx= 7.07880E-08  domx= 5.72853E-10
+iter=  135000  wrel=  1.00  dpmx= 4.20357E-08  domx= 3.62258E-10
+iter=  140000  wrel=  1.00  dpmx= 2.48262E-08  domx= 2.23413E-10
+iter=  145000  wrel=  1.00  dpmx= 1.46838E-08  domx= 1.34245E-10
+iter=  150000  wrel=  1.00  dpmx= 8.77989E-09  domx= 7.84017E-11
+iter=  155000  wrel=  1.00  dpmx= 5.32236E-09  domx= 4.43012E-11
+iter=  160000  wrel=  1.00  dpmx= 3.71877E-09  domx= 2.40282E-11
+iter=  165000  wrel=  1.00  dpmx= 2.65996E-09  domx= 1.23307E-11
+iter=  170000  wrel=  1.00  dpmx= 1.84992E-09  domx= 5.81735E-12
+iter=  175000  wrel=  1.00  dpmx= 1.25491E-09  domx= 2.35212E-12
+iter=  180000  wrel=  1.00  dpmx= 8.32266E-10  domx= 7.83751E-13
+iter=  185000  wrel=  1.00  dpmx= 5.40567E-10  domx= 5.02661E-13
+iter=  190000  wrel=  1.00  dpmx= 3.44293E-10  domx= 4.42202E-13
+iter=  195000  wrel=  1.00  dpmx= 2.15209E-10  domx= 4.83058E-13
+iter=  200000  wrel=  1.00  dpmx= 1.32218E-10  domx= 4.26326E-13
+Run finished for extra1_wswitch_field_200K_step10.dat, final dpmx= 1.32218E-10 domx= 4.26326E-13
+---------------------------------------------------------------------------------------------------------------
+ =========================================================
+Beginning iterations for R =  1.00
+ =========================================================
+R= 1.00  iter=   5000  dpmx= 3.34274E-03  domx= 9.36208E-05
+R= 1.00  iter=  10000  dpmx= 1.34725E-03  domx= 2.97009E-05
+R= 1.00  iter=  15000  dpmx= 8.88780E-04  domx= 1.56065E-05
+R= 1.00  iter=  20000  dpmx= 6.61655E-04  domx= 1.00228E-05
+R= 1.00  iter=  25000  dpmx= 5.27850E-04  domx= 7.14878E-06
+R= 1.00  iter=  30000  dpmx= 4.40120E-04  domx= 5.43643E-06
+R= 1.00  iter=  35000  dpmx= 3.78330E-04  domx= 4.31756E-06
+R= 1.00  iter=  40000  dpmx= 3.32340E-04  domx= 3.53842E-06
+R= 1.00  iter=  45000  dpmx= 2.96477E-04  domx= 2.96989E-06
+R= 1.00  iter=  50000  dpmx= 2.67499E-04  domx= 2.53982E-06
+R= 1.00  iter=  55000  dpmx= 2.43414E-04  domx= 2.20508E-06
+R= 1.00  iter=  60000  dpmx= 2.22968E-04  domx= 1.93839E-06
+R= 1.00  iter=  65000  dpmx= 2.05333E-04  domx= 1.72180E-06
+R= 1.00  iter=  70000  dpmx= 1.89939E-04  domx= 1.54299E-06
+R= 1.00  iter=  75000  dpmx= 1.76371E-04  domx= 1.39332E-06
+R= 1.00  iter=  80000  dpmx= 1.64323E-04  domx= 1.26652E-06
+R= 1.00  iter=  85000  dpmx= 1.53550E-04  domx= 1.15795E-06
+R= 1.00  iter=  90000  dpmx= 1.43860E-04  domx= 1.06413E-06
+R= 1.00  iter=  95000  dpmx= 1.35101E-04  domx= 9.82376E-07
+R= 1.00  iter= 100000  dpmx= 1.27152E-04  domx= 9.10605E-07
+R= 1.00  iter= 105000  dpmx= 1.19909E-04  domx= 8.47171E-07
+R= 1.00  iter= 110000  dpmx= 1.13285E-04  domx= 7.90763E-07
+R= 1.00  iter= 115000  dpmx= 1.07210E-04  domx= 7.40319E-07
+R= 1.00  iter= 120000  dpmx= 1.01621E-04  domx= 6.94977E-07
+R= 1.00  iter= 125000  dpmx= 9.64670E-05  domx= 6.54026E-07
+R= 1.00  iter= 130000  dpmx= 9.17036E-05  domx= 6.16879E-07
+R= 1.00  iter= 135000  dpmx= 8.72893E-05  domx= 5.83045E-07
+R= 1.00  iter= 140000  dpmx= 8.31903E-05  domx= 5.52112E-07
+R= 1.00  iter= 145000  dpmx= 7.93763E-05  domx= 5.23732E-07
+R= 1.00  iter= 150000  dpmx= 7.58215E-05  domx= 4.97609E-07
+R= 1.00  iter= 155000  dpmx= 7.25027E-05  domx= 4.73489E-07
+R= 1.00  iter= 160000  dpmx= 6.93980E-05  domx= 4.51157E-07
+R= 1.00  iter= 165000  dpmx= 6.64891E-05  domx= 4.30423E-07
+R= 1.00  iter= 170000  dpmx= 6.37607E-05  domx= 4.11127E-07
+R= 1.00  iter= 175000  dpmx= 6.11964E-05  domx= 3.93125E-07
+R= 1.00  iter= 180000  dpmx= 5.87835E-05  domx= 3.76295E-07
+R= 1.00  iter= 185000  dpmx= 5.65101E-05  domx= 3.60528E-07
+R= 1.00  iter= 190000  dpmx= 5.43647E-05  domx= 3.45729E-07
+R= 1.00  iter= 195000  dpmx= 5.23383E-05  domx= 3.31812E-07
+R= 1.00  iter= 200000  dpmx= 5.04207E-05  domx= 3.18704E-07
+Finished R=  1.00  final dpmx= 5.04207E-05  domx= 3.18704E-07
+Wrote field for R=  1.00 to extra_field_R1_200K_step10.dat
+ Starting new R from previous solution, R =    3.0000000000000000     
+ =========================================================
+Beginning iterations for R =  3.00
+ =========================================================
+R= 3.00  iter=   5000  dpmx= 5.65914E-04  domx= 2.87307E-06
+R= 3.00  iter=  10000  dpmx= 3.40650E-04  domx= 1.36732E-06
+R= 3.00  iter=  15000  dpmx= 2.30819E-04  domx= 1.28702E-06
+R= 3.00  iter=  20000  dpmx= 1.74423E-04  domx= 1.15642E-06
+R= 3.00  iter=  25000  dpmx= 1.56728E-04  domx= 1.04307E-06
+R= 3.00  iter=  30000  dpmx= 1.42484E-04  domx= 9.51933E-07
+R= 3.00  iter=  35000  dpmx= 1.30372E-04  domx= 8.79525E-07
+R= 3.00  iter=  40000  dpmx= 1.19902E-04  domx= 8.21594E-07
+R= 3.00  iter=  45000  dpmx= 1.10815E-04  domx= 7.74437E-07
+R= 3.00  iter=  50000  dpmx= 1.02895E-04  domx= 7.35101E-07
+R= 3.00  iter=  55000  dpmx= 9.59479E-05  domx= 7.01350E-07
+R= 3.00  iter=  60000  dpmx= 8.98097E-05  domx= 6.71573E-07
+R= 3.00  iter=  65000  dpmx= 8.43439E-05  domx= 6.44652E-07
+R= 3.00  iter=  70000  dpmx= 7.94457E-05  domx= 6.19843E-07
+R= 3.00  iter=  75000  dpmx= 7.50164E-05  domx= 5.96661E-07
+R= 3.00  iter=  80000  dpmx= 7.09882E-05  domx= 5.74796E-07
+R= 3.00  iter=  85000  dpmx= 6.73114E-05  domx= 5.54052E-07
+R= 3.00  iter=  90000  dpmx= 6.39429E-05  domx= 5.34300E-07
+R= 3.00  iter=  95000  dpmx= 6.08538E-05  domx= 5.15454E-07
+R= 3.00  iter= 100000  dpmx= 5.80157E-05  domx= 4.97450E-07
+R= 3.00  iter= 105000  dpmx= 5.54014E-05  domx= 4.80238E-07
+R= 3.00  iter= 110000  dpmx= 5.29848E-05  domx= 4.63775E-07
+R= 3.00  iter= 115000  dpmx= 5.07431E-05  domx= 4.48022E-07
+R= 3.00  iter= 120000  dpmx= 4.86567E-05  domx= 4.32942E-07
+R= 3.00  iter= 125000  dpmx= 4.67088E-05  domx= 4.18500E-07
+R= 3.00  iter= 130000  dpmx= 4.48852E-05  domx= 4.04662E-07
+R= 3.00  iter= 135000  dpmx= 4.31737E-05  domx= 3.91396E-07
+R= 3.00  iter= 140000  dpmx= 4.15629E-05  domx= 3.78669E-07
+R= 3.00  iter= 145000  dpmx= 4.00435E-05  domx= 3.66453E-07
+R= 3.00  iter= 150000  dpmx= 3.86073E-05  domx= 3.54720E-07
+R= 3.00  iter= 155000  dpmx= 3.72471E-05  domx= 3.43442E-07
+R= 3.00  iter= 160000  dpmx= 3.59563E-05  domx= 3.32597E-07
+R= 3.00  iter= 165000  dpmx= 3.47292E-05  domx= 3.22159E-07
+R= 3.00  iter= 170000  dpmx= 3.35611E-05  domx= 3.12108E-07
+R= 3.00  iter= 175000  dpmx= 3.24467E-05  domx= 3.02423E-07
+R= 3.00  iter= 180000  dpmx= 3.13828E-05  domx= 2.93085E-07
+R= 3.00  iter= 185000  dpmx= 3.03651E-05  domx= 2.84077E-07
+R= 3.00  iter= 190000  dpmx= 2.93908E-05  domx= 2.75383E-07
+R= 3.00  iter= 195000  dpmx= 2.84566E-05  domx= 2.66987E-07
+R= 3.00  iter= 200000  dpmx= 2.75601E-05  domx= 2.58875E-07
+Finished R=  3.00  final dpmx= 2.75601E-05  domx= 2.58875E-07
+Wrote field for R=  3.00 to extra_field_R3_200K_step10.dat
+ Starting new R from previous solution, R =    5.0000000000000000     
+ =========================================================
+Beginning iterations for R =  5.00
+ =========================================================
+R= 5.00  iter=   5000  dpmx= 2.37555E-04  domx= 2.58527E-06
+R= 5.00  iter=  10000  dpmx= 2.24569E-04  domx= 1.53065E-06
+R= 5.00  iter=  15000  dpmx= 1.80422E-04  domx= 1.10496E-06
+R= 5.00  iter=  20000  dpmx= 1.41316E-04  domx= 8.86422E-07
+R= 5.00  iter=  25000  dpmx= 1.02480E-04  domx= 7.60994E-07
+R= 5.00  iter=  30000  dpmx= 8.41226E-05  domx= 6.83200E-07
+R= 5.00  iter=  35000  dpmx= 7.83926E-05  domx= 6.30959E-07
+R= 5.00  iter=  40000  dpmx= 7.22872E-05  domx= 5.92569E-07
+R= 5.00  iter=  45000  dpmx= 6.62596E-05  domx= 5.61698E-07
+R= 5.00  iter=  50000  dpmx= 6.06209E-05  domx= 5.34986E-07
+R= 5.00  iter=  55000  dpmx= 5.55362E-05  domx= 5.10721E-07
+R= 5.00  iter=  60000  dpmx= 5.10732E-05  domx= 4.88084E-07
+R= 5.00  iter=  65000  dpmx= 4.72393E-05  domx= 4.66709E-07
+R= 5.00  iter=  70000  dpmx= 4.39663E-05  domx= 4.46447E-07
+R= 5.00  iter=  75000  dpmx= 4.11489E-05  domx= 4.27240E-07
+R= 5.00  iter=  80000  dpmx= 3.86942E-05  domx= 4.09056E-07
+R= 5.00  iter=  85000  dpmx= 3.65312E-05  domx= 3.91864E-07
+R= 5.00  iter=  90000  dpmx= 3.46060E-05  domx= 3.75629E-07
+R= 5.00  iter=  95000  dpmx= 3.28764E-05  domx= 3.60302E-07
+R= 5.00  iter= 100000  dpmx= 3.13094E-05  domx= 3.45833E-07
+R= 5.00  iter= 105000  dpmx= 2.98801E-05  domx= 3.32164E-07
+R= 5.00  iter= 110000  dpmx= 2.85675E-05  domx= 3.19240E-07
+R= 5.00  iter= 115000  dpmx= 2.73555E-05  domx= 3.07006E-07
+R= 5.00  iter= 120000  dpmx= 2.62307E-05  domx= 2.95409E-07
+R= 5.00  iter= 125000  dpmx= 2.51825E-05  domx= 2.84401E-07
+R= 5.00  iter= 130000  dpmx= 2.42017E-05  domx= 2.73937E-07
+R= 5.00  iter= 135000  dpmx= 2.32805E-05  domx= 2.63977E-07
+R= 5.00  iter= 140000  dpmx= 2.24128E-05  domx= 2.54485E-07
+R= 5.00  iter= 145000  dpmx= 2.15932E-05  domx= 2.45426E-07
+R= 5.00  iter= 150000  dpmx= 2.08171E-05  domx= 2.36771E-07
+R= 5.00  iter= 155000  dpmx= 2.00805E-05  domx= 2.28493E-07
+R= 5.00  iter= 160000  dpmx= 1.93799E-05  domx= 2.20567E-07
+R= 5.00  iter= 165000  dpmx= 1.87125E-05  domx= 2.12971E-07
+R= 5.00  iter= 170000  dpmx= 1.80754E-05  domx= 2.05684E-07
+R= 5.00  iter= 175000  dpmx= 1.74665E-05  domx= 1.98688E-07
+R= 5.00  iter= 180000  dpmx= 1.68839E-05  domx= 1.91967E-07
+R= 5.00  iter= 185000  dpmx= 1.63252E-05  domx= 1.85505E-07
+R= 5.00  iter= 190000  dpmx= 1.57895E-05  domx= 1.79287E-07
+R= 5.00  iter= 195000  dpmx= 1.52748E-05  domx= 1.73301E-07
+R= 5.00  iter= 200000  dpmx= 1.47800E-05  domx= 1.67535E-07
+Finished R=  5.00  final dpmx= 1.47800E-05  domx= 1.67535E-07
+Wrote field for R=  5.00 to extra_field_R5_200K_step10.dat
+ Starting new R from previous solution, R =    7.0000000000000000     
+ =========================================================
+Beginning iterations for R =  7.00
+ =========================================================
+R= 7.00  iter=   5000  dpmx= 1.13573E-04  domx= 2.64880E-06
+R= 7.00  iter=  10000  dpmx= 9.54122E-05  domx= 9.55382E-07
+R= 7.00  iter=  15000  dpmx= 8.71005E-05  domx= 6.24678E-07
+R= 7.00  iter=  20000  dpmx= 6.87616E-05  domx= 4.87400E-07
+R= 7.00  iter=  25000  dpmx= 4.87812E-05  domx= 4.11811E-07
+R= 7.00  iter=  30000  dpmx= 3.53243E-05  domx= 3.65838E-07
+R= 7.00  iter=  35000  dpmx= 3.32435E-05  domx= 3.35223E-07
+R= 7.00  iter=  40000  dpmx= 3.07653E-05  domx= 3.12950E-07
+R= 7.00  iter=  45000  dpmx= 2.82012E-05  domx= 2.95379E-07
+R= 7.00  iter=  50000  dpmx= 2.57552E-05  domx= 2.80575E-07
+R= 7.00  iter=  55000  dpmx= 2.35569E-05  domx= 2.67493E-07
+R= 7.00  iter=  60000  dpmx= 2.16985E-05  domx= 2.55575E-07
+R= 7.00  iter=  65000  dpmx= 2.01556E-05  domx= 2.44518E-07
+R= 7.00  iter=  70000  dpmx= 1.88553E-05  domx= 2.34155E-07
+R= 7.00  iter=  75000  dpmx= 1.77429E-05  domx= 2.24393E-07
+R= 7.00  iter=  80000  dpmx= 1.67770E-05  domx= 2.15170E-07
+R= 7.00  iter=  85000  dpmx= 1.59262E-05  domx= 2.06444E-07
+R= 7.00  iter=  90000  dpmx= 1.51678E-05  domx= 1.98182E-07
+R= 7.00  iter=  95000  dpmx= 1.44842E-05  domx= 1.90350E-07
+R= 7.00  iter= 100000  dpmx= 1.38618E-05  domx= 1.82921E-07
+R= 7.00  iter= 105000  dpmx= 1.32903E-05  domx= 1.75867E-07
+R= 7.00  iter= 110000  dpmx= 1.27615E-05  domx= 1.69163E-07
+R= 7.00  iter= 115000  dpmx= 1.22693E-05  domx= 1.62783E-07
+R= 7.00  iter= 120000  dpmx= 1.18085E-05  domx= 1.56705E-07
+R= 7.00  iter= 125000  dpmx= 1.13750E-05  domx= 1.50909E-07
+R= 7.00  iter= 130000  dpmx= 1.09657E-05  domx= 1.45374E-07
+R= 7.00  iter= 135000  dpmx= 1.05780E-05  domx= 1.40084E-07
+R= 7.00  iter= 140000  dpmx= 1.02095E-05  domx= 1.35023E-07
+R= 7.00  iter= 145000  dpmx= 9.85851E-06  domx= 1.30176E-07
+R= 7.00  iter= 150000  dpmx= 9.52351E-06  domx= 1.25529E-07
+R= 7.00  iter= 155000  dpmx= 9.20314E-06  domx= 1.21071E-07
+R= 7.00  iter= 160000  dpmx= 8.89625E-06  domx= 1.16792E-07
+R= 7.00  iter= 165000  dpmx= 8.60197E-06  domx= 1.12679E-07
+R= 7.00  iter= 170000  dpmx= 8.31934E-06  domx= 1.08726E-07
+R= 7.00  iter= 175000  dpmx= 8.04767E-06  domx= 1.04923E-07
+R= 7.00  iter= 180000  dpmx= 7.78628E-06  domx= 1.01262E-07
+R= 7.00  iter= 185000  dpmx= 7.53461E-06  domx= 9.77370E-08
+R= 7.00  iter= 190000  dpmx= 7.29214E-06  domx= 9.43404E-08
+R= 7.00  iter= 195000  dpmx= 7.05833E-06  domx= 9.10664E-08
+R= 7.00  iter= 200000  dpmx= 6.83277E-06  domx= 8.79092E-08
+Finished R=  7.00  final dpmx= 6.83277E-06  domx= 8.79092E-08
+Wrote field for R=  7.00 to extra_field_R7_200K_step10.dat
+
