@@ -1,0 +1,401 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.23)  4 DEC 2025 12:27
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**cfd.tex
+(./cfd.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+(./iopart.cls
+Document Class: iopart 1996/06/10 v0.0 IOP Journals LaTeX article class
+(./iopart12.clo
+File: iopart12.clo 1997/01/15 v1.0 LaTeX2e file (size option)
+)
+\c@jnl=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\indentedwidth=\skip50
+\mathindent=\dimen140
+\c@eqnval=\count195
+) (./iopams.sty
+Package: iopams 1997/02/13 v1.0
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks17
+\ex@=\dimen141
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen142
+))
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen143
+\Gin@req@width=\dimen144
+)
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip51
+\subfigcapskip=\skip52
+\subfigcaptopadj=\dimen145
+\subfigbottomskip=\skip53
+\subfigcapmargin=\dimen146
+\subfiglabelskip=\skip54
+\c@subfigure=\count196
+\c@lofdepth=\count197
+\c@subtable=\count198
+\c@lotdepth=\count199
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip55
+\subfig@bottom=\skip56
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
+\epsfxsize=\dimen147
+\epsfysize=\dimen148
+)
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count266
+\float@exts=\toks19
+\float@box=\box51
+\@float@everytoks=\toks20
+\@floatcapt=\box52
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+)
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count267
+\Gm@cntv=\count268
+\c@Gm@tempcnt=\count269
+\Gm@bindingoffset=\dimen149
+\Gm@wd@mp=\dimen150
+\Gm@odd@mp=\dimen151
+\Gm@even@mp=\dimen152
+\Gm@layoutwidth=\dimen153
+\Gm@layoutheight=\dimen154
+\Gm@layouthoffset=\dimen155
+\Gm@layoutvoffset=\dimen156
+\Gm@dimlist=\toks23
+)
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen157
+\lightrulewidth=\dimen158
+\cmidrulewidth=\dimen159
+\belowrulesep=\dimen160
+\belowbottomsep=\dimen161
+\aboverulesep=\dimen162
+\abovetopsep=\dimen163
+\cmidrulesep=\dimen164
+\cmidrulekern=\dimen165
+\defaultaddspace=\dimen166
+\@cmidla=\count270
+\@cmidlb=\count271
+\@aboverulesep=\dimen167
+\@belowrulesep=\dimen168
+\@thisruleclass=\count272
+\@lastruleclass=\count273
+\@thisrulewidth=\dimen169
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen170
+\ar@mcellbox=\box53
+\extrarowheight=\dimen171
+\NC@list=\toks24
+\extratabsurround=\skip57
+\backup@length=\skip58
+
+
+LaTeX Warning: Command \@xhline  has changed.
+               Check if current package is valid.
+
+\ar@cellbox=\box54
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count274
+\l__pdf_internal_box=\box55
+)
+(./cfd.aux)
+\openout1 = `cfd.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count275
+\scratchdimen=\dimen172
+\scratchbox=\box56
+\nofMPsegments=\count276
+\nofMParguments=\count277
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count278
+\MPscratchDim=\dimen173
+\MPnumerator=\count279
+\makeMPintoPDFobject=\count280
+\everyMPtoPDFconversion=\toks26
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-4.87262pt
+* \headheight=14.0pt
+* \headsep=14.0pt
+* \topskip=12.0pt
+* \footskip=24.0pt
+* \marginparwidth=72.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+Underfull \hbox (badness 1728) in paragraph at lines 35--36
+[]\OT1/cmr/m/n/10 A numerical simulation of viscous, incompressible fluid flow 
+around a
+ []
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+Underfull \hbox (badness 1242) in paragraph at lines 216--217
+[]|\OT1/cmr/bx/n/12 Case 2: Open Flow (mixed
+ []
+
+
+Overfull \hbox (2.90147pt too wide) in paragraph at lines 220--220
+[]|\OT1/cmr/bx/n/12 Downstream| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--224
+[]|\OT1/cmr/bx/n/12 Bottom /
+ []
+
+
+Overfull \hbox (19.36029pt too wide) in paragraph at lines 214--227
+ [][] 
+ []
+
+[6]
+<Bc1_100K.png, id=33, 875.27pt x 656.4525pt>
+File: Bc1_100K.png Graphic file (type png)
+<use Bc1_100K.png>
+Package pdftex.def Info: Bc1_100K.png  used on input line 256.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+<Bc1_200K.png, id=34, 875.27pt x 656.4525pt>
+File: Bc1_200K.png Graphic file (type png)
+<use Bc1_200K.png>
+Package pdftex.def Info: Bc1_200K.png  used on input line 263.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+ [7] [8 <./Bc1_100K.png (PNG copy)> <./Bc1_200K.png (PNG copy)>]
+<Bc2_200K.png, id=43, 875.27pt x 656.4525pt>
+File: Bc2_200K.png Graphic file (type png)
+<use Bc2_200K.png>
+Package pdftex.def Info: Bc2_200K.png  used on input line 290.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+<Bc2_psi_vs_y.png, id=44, 875.27pt x 656.4525pt>
+File: Bc2_psi_vs_y.png Graphic file (type png)
+<use Bc2_psi_vs_y.png>
+Package pdftex.def Info: Bc2_psi_vs_y.png  used on input line 297.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+ [9 <./Bc2_200K.png (PNG copy)> <./Bc2_psi_vs_y.png (PNG copy)>]
+<extra1_wswitch.png, id=50, 875.27pt x 656.4525pt>
+File: extra1_wswitch.png Graphic file (type png)
+<use extra1_wswitch.png>
+Package pdftex.def Info: extra1_wswitch.png  used on input line 317.
+(pdftex.def)             Requested size: 433.62pt x 325.22044pt.
+
+Overfull \hbox (3.61537pt too wide) in paragraph at lines 317--318
+ [][] 
+ []
+
+[10] [11 <./extra1_wswitch.png (PNG copy)>]
+<extra_R3.png, id=57, 875.27pt x 656.4525pt>
+File: extra_R3.png Graphic file (type png)
+<use extra_R3.png>
+Package pdftex.def Info: extra_R3.png  used on input line 331.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+<extra_R5.png, id=58, 875.27pt x 656.4525pt>
+File: extra_R5.png Graphic file (type png)
+<use extra_R5.png>
+Package pdftex.def Info: extra_R5.png  used on input line 338.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+ [12 <./extra_R3.png (PNG copy)> <./extra_R5.png (PNG copy)>]
+<extra_R7.png, id=62, 875.27pt x 656.4525pt>
+File: extra_R7.png Graphic file (type png)
+<use extra_R7.png>
+Package pdftex.def Info: extra_R7.png  used on input line 351.
+(pdftex.def)             Requested size: 433.62pt x 325.22044pt.
+
+Overfull \hbox (3.61537pt too wide) in paragraph at lines 351--352
+ [][] 
+ []
+
+[13 <./extra_R7.png (PNG copy)>]
+<Bc2_200K_h100.png, id=67, 875.27pt x 656.4525pt>
+File: Bc2_200K_h100.png Graphic file (type png)
+<use Bc2_200K_h100.png>
+Package pdftex.def Info: Bc2_200K_h100.png  used on input line 368.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+<Bc2_psi_vs_y_h100.png, id=68, 875.27pt x 656.4525pt>
+File: Bc2_psi_vs_y_h100.png Graphic file (type png)
+<use Bc2_psi_vs_y_h100.png>
+Package pdftex.def Info: Bc2_psi_vs_y_h100.png  used on input line 375.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+<Bc2_200K_w100.png, id=69, 875.27pt x 656.4525pt>
+File: Bc2_200K_w100.png Graphic file (type png)
+<use Bc2_200K_w100.png>
+Package pdftex.def Info: Bc2_200K_w100.png  used on input line 391.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+<Bc2_psi_vs_y_w100.png, id=70, 875.27pt x 656.4525pt>
+File: Bc2_psi_vs_y_w100.png Graphic file (type png)
+<use Bc2_psi_vs_y_w100.png>
+Package pdftex.def Info: Bc2_psi_vs_y_w100.png  used on input line 398.
+(pdftex.def)             Requested size: 206.40038pt x 154.79724pt.
+ [14 <./Bc2_200K_h100.png (PNG copy)> <./Bc2_psi_vs_y_h100.png (PNG copy)>] [15
+ <./Bc2_200K_w100.png (PNG copy)> <./Bc2_psi_vs_y_w100.png (PNG copy)>] (./cfd.
+bbl [16]) [17] (./cfd.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-22>
+ ***********
+ ) 
+Here is how much of TeX's memory you used:
+ 3389 strings out of 476182
+ 49626 string characters out of 5795594
+ 1933975 words of memory out of 5000000
+ 25348 multiletter control sequences out of 15000+600000
+ 569950 words of font info for 81 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 57i,12n,65p,1354b,399s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on cfd.pdf (17 pages, 605436 bytes).
+PDF statistics:
+ 151 PDF objects out of 1000 (max. 8388607)
+ 87 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+

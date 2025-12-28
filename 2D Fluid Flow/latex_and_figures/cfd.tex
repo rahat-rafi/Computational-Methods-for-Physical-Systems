@@ -1,0 +1,424 @@
+%
+\documentclass[12pt]{iopart}
+\newcommand{\gguide}{{\it Preparing graphics for IOP journals}}
+%Uncomment next line if AMS fonts required
+\usepackage{iopams}  
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{epsfig}
+\usepackage{comment}
+\usepackage{float}  % in preamble
+\providecommand{\newblock}{}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}   % For page layout
+\usepackage{booktabs}   % REQUIRED: For academic table lines (\toprule, \midrule)
+\usepackage{array}      % REQUIRED: For advanced table column formatting
+
+
+
+\begin{document}
+	
+	\title[PHY 711: Project-II ]{Numerical simulation of flow around a rectangular obstruction using a relaxation method}
+	
+	\author{Sk Rahat Bin Salam}
+	\address{School of Mathematics and Natural Sciences,\\
+		The University of Southern Mississippi, Hattiesburg, Mississippi, 
+		39406}
+	\ead{SkRahat.BinSalam@usm.edu}
+	
+	\bibliographystyle{softe1lwbosa}
+	%\bibliographystyle{iopart-num}
+	
+	\begin{abstract}
+		
+		A numerical simulation of viscous, incompressible fluid flow around a rectangular obstruction is carried out using the relaxation method. This study focuses on the influences of boundary conditions on the two-dimensional, time-independent flow. For two sets of boundary conditions (unimpeded flow and mixed boundary constraints), the flow field, the vorticity and the velocity were analyzed initially. The evolution of the stream function was tracked in the later scheme. The effects of the size of obstruction with fixed Reynold's number and relaxation parameter and the effects of varying Reynold's number and relaxation parameter was later investigated to get a better picture of numerical stability.		
+		
+	\end{abstract}
+	
+	\section{Introduction}
+		
+	In computational fluid dynamics, the flow of viscous, incompressible fluids around solid obstacles is a classic problem. Numerical modeling is essential in these cases as analytical solutions are rare due to the nonlinear nature of the Navier-Stokes equations~\cite{koonin}. This project simulates steady, two-dimensional laminar flow around a rectangular obstruction using relaxation methods and we discuss the solution for this situation with the stream function and vorticity formulation.
+	
+	The flow of a viscous, incompressible fluid is governed by the Navier-Stokes equations expressing conservation of mass and momentum for the fluid \cite{joseph}. For a fluid of mass density $\rho$, velocity field $\mathbf{V} = (u,v)$, pressure $p$, and viscosity $\nu$, these equations can be written as
+	\begin{equation}
+		\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{V}) = 0,
+	\end{equation}
+	\begin{equation}
+		\frac{\partial \mathbf{V}}{\partial t}
+		+ (\mathbf{V} \cdot \nabla)\mathbf{V}
+		= -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{V}.
+	\end{equation}
+	The first equation expresses the continuity equation for the conservation of mass. The second equation is the Navier-Stokes equation which expresses the conservation of momentum for the fluid \cite{white_viscous,kundu_fluid}.
+	In this project we focus on steady, incompressible flow with constant density. Under these assumptions, $\rho$ is constant, and the governing time-independent equations simplify to
+	\begin{equation}
+		\nabla \cdot \mathbf{V} = 0,
+		\qquad
+		(\mathbf{V} \cdot \nabla)\mathbf{V} = -\frac{1}{\rho}\nabla p + \nu \nabla^2 \mathbf{V}.
+	\end{equation}
+	For a two--dimensional flow in Cartesian coordinates with $\mathbf{V}=[u(x,y), v(x,y)]$, these become the component equations for continuity and conservation of the x and y components of momentum
+	\begin{equation}
+		\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} = 0,
+	\end{equation}
+	\begin{equation}
+		u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y}
+		= -\frac{1}{\rho}\frac{\partial p}{\partial x} + \nu \nabla^2 u,
+	\end{equation}
+	\begin{equation}
+		u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y}
+		= -\frac{1}{\rho}\frac{\partial p}{\partial y} + \nu \nabla^2 v.
+	\end{equation}
+	
+	Directly solving these equations for $(u,v)$ around a solid obstacle is troublesome both analytically and numerically due to the coupling through the pressure and the incompressibility constraint. A standard strategy in two dimensions is to reformulate the problem in terms of a \emph{stream function} $\psi(x,y)$ and a \emph{vorticity} field $\Omega(x,y)$. The stream function is defined so that
+	\begin{equation}
+		u = \frac{\partial \psi}{\partial y}, \qquad
+		v = -\frac{\partial \psi}{\partial x},
+	\end{equation}
+	which satisfies the condition $\partial u/\partial x + \partial v/\partial y = 0$. The vorticity is defined as the curl of the velocity,
+	\begin{equation}
+		\Omega = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}.
+	\end{equation}
+	Substituting the stream function for $u$ and $v$ into this definition gives a relation between vorticity and the stream function:
+	\begin{equation}
+		\Omega = -\,\nabla^2 \psi.
+	\end{equation}
+	This is the Poisson's equation that connects $\psi$ and $\Omega$ \cite{koonin}. In this project, it is one of the two central equations we solve numerically \cite{ferziger_cfd,koonin}.
+	
+	The second equation is obtained after eliminating the pressure from the momentum equations and writing the dynamics for the vorticity.
+	\begin{equation}
+		u \frac{\partial \Omega}{\partial x}
+		+ v \frac{\partial \Omega}{\partial y}
+		= \nu \nabla^2 \Omega.
+	\end{equation}
+	This equation shows a balance between the convection of vorticity by the flow and the diffusion of vorticity due to viscosity \cite{ferziger_cfd,white_viscous}.
+	
+	To work with dimensionless variables, we scale lengths by a characteristic length $h$ (for example, in computation, it is almost always the grid spacing) and velocities by a characteristic speed $v_0$ (for example, the incoming uniform flow). In terms of the dimensionless coordinates and velocities, the vorticity equation becomes
+	\begin{equation}
+		u \frac{\partial \Omega}{\partial x}
+		+ v \frac{\partial \Omega}{\partial y}
+		= \frac{1}{R} \nabla^2 \Omega,
+	\end{equation}
+	where
+	\begin{equation}
+		R = \frac{\rho v_0 h}{\nu}
+	\end{equation}
+	is the Reynold's number \cite{joseph}. And 
+	\begin{equation}
+		u = \frac{\partial \psi}{\partial y}, \qquad
+		v = -\frac{\partial \psi}{\partial x},
+	\end{equation}
+	
+	The numerical framework in this project depends on a discrete, uniform grid which is solved using the relaxation method. The boundary of the rectangular obstacle is treated as a rigid region where the stream function is constrained to be fixed while the vorticity is calculated using finite difference approximations.
+	
+\section{Method}
+
+\subsection{Computational domain and geometry}
+
+The flow is simulated in a two-dimensional rectangular domain containing a solid obstruction. The obstruction is modeled as a rectangle of width $50$ grid spacings in the streamwise ($x$) direction and height $50$ grid spacings extending from the bottom boundary into the computational domain. The domain extends $400$ grid spacings upstream, $400$ grid spacings downstream, and $400$ grid spacings above the obstruction, so that there are $400$ active grid points in each of the three directions around the block.
+
+Using unit grid spacing $\Delta x = \Delta y = 1$, the total number of grid points in the simulation is
+\begin{equation}
+	n_x = n_1 + n_w + n_2 + 1 = 851, \qquad
+	n_y = n_t + n_h + 1 = 451,
+\end{equation}
+where $n_1 = 400$ (upstream length), $n_2 = 400$ (downstream length), $n_w = 50$ (block width), $n_t = 50$ (block height) and $n_h = 400$ (height above the block).
+
+\subsection{Finite-difference discretization with relaxation scheme}
+
+The coupled equations for $\psi$ and $\Omega$ are discretized on the uniform Cartesian grid. All derivatives are approximated using central differences. Rather than directly inverting the discrete Poisson and convection-diffusion operators, the solution is obtained by iterative relaxation sweeps \cite{ferziger_cfd,koonin}.
+
+For the stream function, the discrete operator is written in terms of the four nearest neighbors and the four diagonal neighbors. At a fluid interior grid point $(i,j)$, we define the sums
+\begin{equation}
+	S_C = \psi_{i+1,j} + \psi_{i-1,j} + \psi_{i,j+1} + \psi_{i,j-1},
+\end{equation}
+\begin{equation}
+	S_S = \psi_{i+1,j+1} + \psi_{i-1,j+1} + \psi_{i-1,j-1} + \psi_{i+1,j-1},
+\end{equation}
+\begin{equation}
+	S_{\Omega} = \Omega_{i+1,j} + \Omega_{i-1,j} + \Omega_{i,j+1} + \Omega_{i,j-1}.
+\end{equation}
+The underlying finite--difference approximation to the Poisson equation $\nabla^2 \psi = -\Omega$ used in the code can be written in the form
+\begin{equation}
+	\psi^\star_{i,j}
+	= \frac{1}{5}\left(S_C + \frac{1}{4} S_S\right)
+	+ \frac{1}{5}\,\Omega_{i,j}
+	+ \frac{1}{40}\,S_{\Omega},
+\end{equation}
+where $\psi^\star_{i,j}$ is the local estimate obtained from the neighboring values. The new stream function is then updated
+\begin{equation}
+	\psi^{(\mathrm{new})}_{i,j}
+	= (1 - w)\,\psi^{(\mathrm{old})}_{i,j} + w\,\psi^\star_{i,j},
+\end{equation}
+where $w$ is the relaxation parameter. In the main runs, we use $w = 0.1$, and additional tests with larger $w$ are carried out to study the effect of over--relaxation on the convergence behavior.
+
+For the vorticity equation at each fluid point we define the sums
+\begin{equation}
+	S_{\Omega C} = \Omega_{i+1,j} + \Omega_{i-1,j} + \Omega_{i,j+1} + \Omega_{i,j-1},
+\end{equation}
+\begin{equation}
+	S_{\Omega S} = \Omega_{i+1,j+1} + \Omega_{i-1,j+1} + \Omega_{i-1,j-1} + \Omega_{i+1,j-1}.
+\end{equation}
+The nonlinear convective term is expressed using centered differences in both directions. In compact form, the discrete approximation to the vorticity equation is written as
+\begin{eqnarray}
+	F_{i,j} &=&
+	\frac{1}{4}\Big[(\psi_{i,j+1}-\psi_{i,j-1})(\Omega_{i+1,j}-\Omega_{i-1,j})
+	\nonumber\\
+	&& \qquad
+	- (\psi_{i+1,j}-\psi_{i-1,j})(\Omega_{i,j+1}-\Omega_{i,j-1})\Big],
+\end{eqnarray}
+and the local update for vorticity is
+\begin{equation}
+	\Omega^\star_{i,j}
+	= \frac{1}{5}\left(S_{\Omega C} + \frac{1}{4} S_{\Omega S}\right)
+	- \frac{3R}{10}\,F_{i,j}.
+\end{equation}
+The relaxed vorticity is then obtained from
+\begin{equation}
+	\Omega^{(\mathrm{new})}_{i,j}
+	= (1 - w)\,\Omega^{(\mathrm{old})}_{i,j} + w\,\Omega^\star_{i,j}.
+\end{equation}
+
+To accelerate the propagation of information across the domain, the relaxation is applied in a sequence of directional sweeps over three subregions: Region~I (left of the obstacle), Region~II (right of the obstacle), and Region~III (above the obstacle). In each iteration, forward sweeps (increasing indices) over the three regions are followed by backward sweeps (decreasing indices). This ``back--and--forth'' ordering is used for both $\psi$ and $\Omega$.
+
+Convergence is monitored by computing the maximum absolute change in the stream function and vorticity during each set of sweeps,
+\begin{equation}
+	\Delta_\psi^{(\mathrm{iter})}
+	= \max_{i,j} \left|\psi^{(\mathrm{new})}_{i,j} - \psi^{(\mathrm{old})}_{i,j}\right|,
+	\qquad
+	\Delta_\Omega^{(\mathrm{iter})}
+	= \max_{i,j} \left|\Omega^{(\mathrm{new})}_{i,j} - \Omega^{(\mathrm{old})}_{i,j}\right|.
+\end{equation}
+In this project a fixed number of iterations is used ($1\times 10^5$ and $2\times 10^5$), and these diagnostics are recorded to assess how close the solution is to a steady state.
+
+\subsection{Boundary and initial conditions}
+
+All simulations are initialized from a simple, physically reasonable starting field. The initial stream function is chosen to represent a uniform flow in the positive $x$--direction, with
+\begin{equation}
+	\psi(x,y) \approx y,
+\end{equation}
+which corresponds to nearly uniform velocity $u \approx 1$, $v \approx 0$ away from the obstruction. The initial vorticity is set to zero throughout the fluid domain. Points inside the solid block are marked with a mask array and assigned $\psi = 0$.
+
+After each relaxation sweep, the appropriate boundary conditions are re-applied to prevent numerical drift of the prescribed values. The wall vorticity conditions are enforced after the stream function update and before the vorticity relaxation.
+
+Using the boundary conditions corresponding to unimpeded flow a solution is generated with zero vorticity and a stream function of ($iy-1$) along the top and upstream/downstream of the domain \cite{wang}. In the second case, for zero vorticity and no $x$ derivative on the upstream, no $x$ derivative for both vorticity and stream function on the downstream and zero vorticity with a $y$ derivative of the stream function of $1$ along the top, other solutions are generated.
+
+A central aim of this study is to evaluate the sensitivity of the solution to far-field boundary constraints. We compare two distinct schemes, summarized in Table \ref{tab:bc_comparison}.
+
+\begin{table}[H]
+	\centering
+	\caption{Comparison of Far-Field Boundary Condition Schemes}
+	\label{tab:bc_comparison}
+	\renewcommand{\arraystretch}{1.5}
+	% Removed the outer '|' to open left and right borders
+	% Kept the inner '|' for internal division
+	\begin{tabular}{p{2.5cm}|p{5.5cm}|p{6.5cm}}
+		% Removed the top \hline to open the top boundary
+		\textbf{Boundary} & \textbf{Case 1: Unimpeded flow} & \textbf{Case 2: Open Flow (mixed boundary constraints)} \\
+		\hline \hline
+		\textbf{Upstream} & Fixed Stream Function \newline $\psi = y, \quad \Omega = 0$ & Zero Gradient \newline $\frac{\partial \psi}{\partial x} = 0, \quad \Omega = 0$ \\
+		\hline
+		\textbf{Downstream} & Fixed Stream Function \newline $\psi = y, \quad \Omega = 0$ & Zero Gradient (Outflow) \newline $\frac{\partial \psi}{\partial x} = 0, \quad \frac{\partial \Omega}{\partial x} = 0$ \\
+		\hline
+		\textbf{Top} & Fixed Stream Function \newline $\psi = y, \quad \Omega = 0$ & Fixed Velocity \newline $\frac{\partial \psi}{\partial y} = 1, \quad \Omega = 0$ \\
+		\hline
+		\textbf{Bottom / Block} & Symmetry/No-Slip \newline $\psi = 0, \quad \Omega_{wall} = f(\psi_{adj})$ & Symmetry/No-Slip \newline $\psi = 0, \quad \Omega_{wall} = f(\psi_{adj})$ \\
+		\hline
+	\end{tabular}
+\end{table}
+
+
+\subsection{Output and diagnostics}
+
+At the end of each simulation, the velocity components are reconstructed from the converged stream function via
+\begin{equation}
+	u_{i,j} = \frac{\psi_{i,j+1} - \psi_{i,j-1}}{2}, \qquad
+	v_{i,j} = -\,\frac{\psi_{i+1,j} - \psi_{i-1,j}}{2},
+\end{equation}
+using centered differences. For visualization, the fields $(u,v,\psi,\Omega)$ are written to output on a coarsened subset of grid points (10 points in each direction), providing a manageable representation of the final velocity field around the obstacle.
+
+For Case~2, additional diagnostics are generated to track the temporal evolution of the stream function at a fixed streamwise location. Specifically, at grid index $x = 390$, which lies ten grid points upstream from the leading edge of the obstruction, the profile $\psi(x=390,y)$ is recorded every $2\times 10^4$ iterations up to $2\times 10^5$ iterations. These ``snapshots'' provide a clear picture of how the streamfunction field relaxes toward its steady state under the modified boundary conditions.
+
+\section{Result}
+
+\subsection{Unimpeded flow}
+
+The results for the unimpeded flow case, the flow with zero vorticity and stream function is fixed to ($iy - 1$) along the top, upstream and downstream boundaries. Figure 1 displays the final velocity field around the rectangular obstruction. The dominant flow is pointed towards the left face of the obstruction and the total computational domain becomes $[851, 451]$. The Reynold's number is set to $1$ and the relaxation parameter is $0.1$.
+
+The flow decelerates and is deflected upward  when the fluid approached the obstruction producing a strong vertical component. Near the lower right corner of this obstacle, a small region of weak motion appears displaying a stagnant packet in the wake. Away from the obstruction, the central and upper parts stay parallel and uniform being consistent with the imposed unimpeded boundary conditions.
+
+The corresponding flow field after $200000$ relaxation iterations is exhibited in Figure 1(b). The overall velocity field is unchanged with the same upward deflection pattern in front of the block and the weak-flow region downstream . Only minor adjustments are visible while the streamlines become sightly smoother. This comparison indicates that after $100000$ iterations the solution is already close to a steady state and only small refined details is observed.
+
+\begin{figure}[H]
+	\centering
+	%--- left panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc1_100K.png}
+		\vspace{4pt}
+		{\small (a) Flow field after $1\times 10^5$ iterations}
+	\end{minipage}\hfill
+	%--- right panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc1_200K.png}
+		\vspace{4pt}
+		{\small (b) Flow field after $2\times 10^5$ iterations}
+	\end{minipage}
+	
+	\caption{For he flow field around a rectangular obstruction, with $\psi=iy-1$ and $\Omega=0$ at the top, upstream, and downstream of the domain, relaxation performed with (a) $100000$ iterations and (b) $200000$ iterations are displayed here.}
+	\label{fig:case1}
+\end{figure}
+
+
+
+
+\subsection{Mixed boundary conditions}
+
+Figure 2(a) shows the velocity field obtained for the second set of boundary conditions after $200000$ relaxation iterations. In this case, the upstream boundary is treated as an ``open'' inlet with zero vorticity and zero gradient of the stream function, $\frac{\partial \psi} {\partial x} = 0$. At the downstream boundary, the same zero--gradient condition is imposed on both $\psi$ and $\Omega$, while along the top boundary the vertical derivative of the stream function is fixed to unity, $\frac{\partial \psi}{\partial y} = 1$, with $\Omega = 0$. 
+
+The global structure of the flow in Figure 2 remains broadly similar to the
+first case: the incoming stream is deflected upward along the front face of the block and a wake forms downstream. However, in the lower-right portion of the domain the solution no longer relaxes to a smooth, regular pattern. Instead, a region of weak and irregular motion persists near the bottom boundary, indicating that the mixed derivative conditions allow a disturbed wake to extend farther downstream without fully re-establishing the simple far-field profile.
+
+To examine the approach to steady state in more detail, the stream function $\psi$ and vorticity $\Omega$ were sampled along a vertical line $10$ grid points upstream of the leading edge of the obstacle ($x = 390$). Figure 2(b) presents $\psi(y)$ at this location for ten evenly spaced iteration counts between $20000$ and $200000$, with all runs performed at $R = 1$ and $w = 0.1$. The profiles of $\psi$ show a gradual adjustment near the obstruction: early iterations exhibit a pronounced curvature in the region just above the block, which progressively relaxes toward a nearly linear profile that matches the derivatives of velocity at large $y$. The vorticity profiles display a sharp negative peak close to the top of the block, reflecting the strong local derivatives of velocity, and this peak decreases in magnitude and shifts slightly as the relaxation proceeds, before settling into a stable shape.
+
+
+\begin{figure}[H]
+	\centering
+	%--- left panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc2_200K.png}
+		\vspace{4pt}
+		{\small (a) Flow field after $2\times 10^5$ iterations}
+	\end{minipage}\hfill
+	%--- right panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc2_psi_vs_y.png}
+		\vspace{4pt}
+		{\small (b) $\psi$ vs $y$}
+	\end{minipage}
+	
+	\caption{(a) In the flow field around a rectangular obstruction, the upstream boundary has $\frac{\partial\psi}{\partial x}=0$ and the downstream boundary has $\frac{\partial\psi}{\partial x}=0$ with $\Omega=0$. The top boundary of the domain has a y derivative for $\psi$ of 1 with $\Omega=0$. In this case, relaxation is performed with 200000 iterations. (b) The stream function, $\psi$, and vorticity, $\Omega$, at $10$ grid points upstream from the leading edge of the obstacle for $5$ evenly spaced number of iterations with boundary conditions of the second kind. Relaxation of $\psi$ and $\Omega$ are performed with $R=1$ and $w=0.1$. Curves for every 20,000 iterations are shown(blue, red, dark green, magenta, cyan, black, yellow, gray, brownish orange and dark purple respectively).}
+	\label{fig:case2}
+\end{figure}
+
+\subsection{Additional tasks}
+
+\subsubsection{\textbf{Varying the relaxation parameter:}}
+
+To examine the impact of using a larger relaxation parameter, additional simulations were carried out in which the over–relaxation factor \(w\) was increased after an initial low–\(w\) pre–relaxation phase. The reference (``basic'') solution employed \(w = 0.1\) for all iterations. In the modified run, the same starting field was first relaxed with \(w = 0.1\) for a fixed number of iterations, allowing the main features of the streamfunction and vorticity fields (upstream deflection, separation at the leading edge, and formation of the wake) to develop in a numerically stable manner. After this initial stage, \(w\) was increased to a higher value for the remainder of the computation. With this strategy the iteration remained stable, and the maximum updates in \(\psi\) and \(\Omega\) decreased more rapidly than in the basic case, indicating a noticeable acceleration of convergence. Test runs in which the simulation was started directly with the higher \(w\) tended to produce oscillatory behaviour and, in some cases, loss of convergence, highlighting the need for the initial low–\(w\) phase. 
+The final velocity field obtained with the switched–\(w\) scheme is qualitatively almost indistinguishable from the basic solution. The flow is still deflected upward along the front face of the block, a recirculation region and low–velocity wake persist downstream of the obstacle, and the upper part of the domain returns to an almost uniform shear flow. The weak and irregular behaviour near the lower–right portion of the domain is also preserved, suggesting that this feature is primarily controlled by the boundary conditions rather than by the choice of relaxation parameter. Any differences between the two fields are confined to very small local variations in the vector pattern near the wake. These observations indicate that, provided the switching is performed after the solution has been smoothed by a sufficiently long low–\(w\) phase and that enough iterations are taken after the switch, a larger relaxation parameter mainly improves the \emph{rate of convergence} without significantly altering the converged physical
+solution.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{extra1_wswitch.png}
+	\caption{The flow field around a rectangular obstruction is observed after changing relaxation parameter from $0.1$ to $1.0$ after $20000$ iterations.The upstream boundary has $\frac{\partial\psi}{\partial x}=0$ and the downstream boundary has $\frac{\partial\psi}{\partial x}=0$ with $\Omega=0$. The top boundary of the domain has a y derivative for $\psi$ of 1 with $\Omega=0$ for relaxation performed with $200000$ iterations.}
+	\label{fig:extra1}
+\end{figure}
+
+\subsubsection{\textbf{Different Reynold's number:}}
+
+To examine the influence of inertial effects, the Reynolds number was increased from the baseline value \(R=1\) to \(R=3\), \(R=5\) and \(R=7\). Rather than restarting from a uniform initial field each time, the converged stream function and vorticity fields at lower Reynolds number were used as starting fields for the next run. In practice, the code was first iterated at \(R=1\) until the updates in \(\psi\) and \(\Omega\) became small, and then the value of \(R\) in the vorticity and relaxation step was changed while keeping all other parameters (geometry, grid, boundary conditions and relaxation parameter \(w=0.1\)) fixed. This continuation strategy greatly improved numerical stability: when attempting to start directly from a uniform flow at high \(R\), the relaxation process converged much more slowly and occasionally produced oscillatory updates, whereas using the lower-\(R\) solution as an initial guess yielded smooth convergence to a new steady state for all cases up to \(R=7\).
+
+\begin{figure}[H]
+	\centering
+	%--- left panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{extra_R3.png}
+		\vspace{4pt}
+		{\small (a) $R = 3$}
+	\end{minipage}\hfill
+	%--- right panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{extra_R5.png}
+		\vspace{4pt}
+		{\small (b) $R = 5$}
+	\end{minipage}
+	
+	\caption{The flow field around a rectangular obstruction at Reynolds number (a) $R = 3$ and (b) $R = 5$ after $200{,}000$ relaxation iterations, using the stream function and vorticity formulation with the same boundary conditions as the base case. The recirculation region behind the obstacle is more pronounced compared to $R = 1$, while the far field remains close to the imposed uniform flow.}
+	\label{fig:extra2.1}
+\end{figure}
+
+The resulting velocity fields for \(R=3\), \(R=5\) and \(R=7\) are shown in Figure 4(a), 4(b) and 5 respectively. Qualitatively, the overall structure of the flow remains similar across this range of Reynolds numbers: the incoming flow remains almost uniform in the upper part of the domain, the streamlines bend upward in front of the obstacle, and a recirculation region forms in its wake. As \(R\) is increased, the influence of inertia becomes more evident in the near-wake region. The curvature of the streamlines wrapping around the top edge of the block becomes slightly sharper, and the disturbed region downstream of the obstacle extends further in the streamwise direction. The recirculation zone behind the block becomes longer and somewhat narrower \cite{sahin_squarecyl,schlichting_boundary}, indicating a stronger convective transport of vorticity relative to viscous diffusion. However, up to \(R=7\) the flow field remains steady and laminar, and the far--field region away from the obstacle is still driven back toward the imposed boundary profile by the outer boundary conditions. Within the range explored here, the dominant qualitative effect of increasing Reynolds number is therefore a progressive elongation and strengthening of the wake, rather than a complete change in the overall flow topology.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6in]{extra_R7.png}
+	\caption{Steady-state velocity field for flow around a rectangular obstruction at Reynolds number $R = 7$ after $200{,}000$ relaxation iterations, using the stream function and vorticity formulation with the same boundary conditions as the base case. The recirculation region behind the obstacle is much more pronounced compared to $R = 1$.}
+	\label{fig:extra2.2}
+\end{figure}
+
+\subsubsection{\textbf{Size effects of the obstruction:}}
+
+To examine the influence of obstacle size, the rectangular obstruction was enlarged in two separate ways while keeping $400$ grid points upstream, downstream, and above the block. In the first case in Figure 6, the height of the obstacle was doubled to $100$ grid spacings (with the width fixed at $50$). In the second case, the width in the streamwise direction was doubled to $100$ grid spacings (with the height fixed at $50$). All runs were performed with the same numerical parameters as in the reference case, namely $R = 1$, $w = 0.1$, and $200000$ relaxation iterations, using the mixed far--field boundary conditions (Case~2).
+
+
+
+
+\begin{figure}[H]
+	\centering
+	%--- left panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc2_200K_h100.png}
+		\vspace{4pt}
+		{\small (a) Flow field after $2\times 10^5$ iterations}
+	\end{minipage}\hfill
+	%--- right panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc2_psi_vs_y_h100.png}
+		\vspace{4pt}
+		{\small (b) $\psi$ vs $y$}
+	\end{minipage}
+	
+	\caption{(a) The flow field around a rectangular obstruction with height = 100.The upstream boundary has $\frac{\partial\psi}{\partial x}=0$ and the downstream boundary has $\frac{\partial\psi}{\partial x}=0$ with $\Omega=0$. The top boundary of the domain has a y derivative for $\psi$ of 1 with $\Omega=0$. In this case, relaxation is performed with 200000 iterations. (b) The stream function, $\psi$, and vorticity, $\Omega$, at $10$ grid points upstream from the leading edge of the obstacle for $5$ evenly spaced number of iterations with boundary conditions of second kind. Relaxation of $\psi$ and $\Omega$ are performed with $R=1$ and $w=0.1$. Curves for every 20,000 iterations are shown(blue, red, dark green, magenta, cyan, black, yellow, gray, brownish orange and dark purple respectively).}
+	\label{fig:extra3h}
+\end{figure}
+
+For the taller obstacle (height $=100$), the velocity field shows a stronger vertical deflection of the incoming flow and a more pronounced recirculation region immediately downstream of the block. The streamlines and velocity vectors bend upward over a larger vertical extent compared with the baseline $50\times 50$ block, but the flow still recovers smoothly toward a nearly uniform profile above the wake. The corresponding $\psi(y)$ profiles taken ten grid points upstream from the leading edge indicate that the main effect of increasing the height is to enhance the curvature of the stream function in the near--wall region. At larger $y$, all curves collapse onto almost the same linear trend, suggesting that the far field remains only weakly influenced by doubling the obstacle height for this Reynolds number.
+
+\begin{figure}[H]
+	\centering
+	%--- left panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc2_200K_w100.png}
+		\vspace{4pt}
+		{\small (a) Flow field after $2\times 10^5$ iterations}
+	\end{minipage}\hfill
+	%--- right panel ---
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Bc2_psi_vs_y_w100.png}
+		\vspace{4pt}
+		{\small (b) $\psi$ vs $y$}
+	\end{minipage}
+	
+	\caption{(a) The flow field around a rectangular obstruction with width = 100.The upstream boundary has $\frac{\partial\psi}{\partial x}=0$ and the downstream boundary has $\frac{\partial\psi}{\partial x}=0$ with $\Omega=0$. The top boundary of the domain has a y derivative for $\psi$ of 1 with $\Omega=0$. In this case, relaxation is performed with 200000 iterations. (b) The stream function, $\psi$, and vorticity, $\Omega$, at $10$ grid points upstream from the leading edge of the obstacle for $5$ evenly spaced number of iterations with boundary conditions of second kind. Relaxation of $\psi$ and $\Omega$ are performed with $R=1$ and $w=0.1$. Curves for every 20,000 iterations are shown(blue, red, dark green, magenta, cyan, black, yellow, gray, brownish orange and dark purple respectively).}
+	\label{fig:extra3w}
+\end{figure}
+
+In contrast, in Figure 7, increasing the obstacle width to $100$ grid spacings produces a visibly longer wake and a much wider region of reduced velocity downstream of the block. The recirculation zone extends farther along the flow direction, and the shear layer separating the disturbed flow from the outer uniform stream remains relatively thick even close to the outflow boundary. The $\psi(y)$ profiles for the wide block show a larger shift relative to the base case in the intermediate $y$-range, and they relax more slowly toward the far-field linear behaviour. Taken together, these observations indicate that as the obstruction becomes wider, the flow ``wants'' to continue adjusting in the $x$-direction beyond the numerical outflow boundary. However, the imposed outflow condition with zero stream wise derivative effectively freezes the downstream evolution: streamlines are forced to straighten and align with the boundary sooner than they would in an unbounded domain. This is an indication that for sufficiently large obstacles, the imposed boundary conditions begin to limit the physical realism of the wake region, even though the near--field structure around the block is still captured consistently.
+
+
+	
+	\section{Conclusion}
+	
+	With boundary conditions of the ``unimpeded'' flow with a prescribed stream function and zero vorticity along the upstream, downstream, and top boundaries, a regular and physically consistent pattern was formed. At the front edge of the block, the flow is separated and it develops a recirculation zone in its wake. Far from the block the region returns to the imposed uniform profile gradually. But for the second kind of boundary conditions, in which normal derivatives of $\psi$ and $\Omega$ are constrained instead of their absolute values, irregular behavior is exhibited near the lower right zone. In this case, the numerical flow field does not fully relax back showing contradiction with the ``unimpeded'' one.
+	
+	A common feature is observed across all the simulations that the vertical velocity $v$ decays once the distance above the obstruction surpasses a few grid spacings. The strongest vertical motion is cramped in the vicinity of the obstruction. The contrast between sizes of different obstacles expresses the sensitivity of the flow field due to geometrical dissimilarity at fixed Reynold's number and relaxation parameter.
+	
+	The additional studies highlight how numerical and physical parameters shape the computed flow. Switching from a small relaxation parameter to a larger one after an initial transient accelerates convergence without visibly altering the final velocity field, provided the change in \(w\) is moderate. Increasing the Reynolds number into the range \(R \approx 3\)–\(7\) strengthens the recirculation and lengthens the wake, while still allowing a steady solution to be obtained from lower–\(R\) fields. Finally, enlarging the obstacle height mainly affects the local deflection over the block, whereas increasing its width has a more pronounced impact on the wake length and on the ability of the downstream boundary to accommodate the continued adjustment of the flow. Together, these results show that the relaxation scheme is effective for exploring laminar obstacle flows, but they also emphasize that realistic flow patterns require carefully chosen boundary conditions and domain sizes, especially when the obstruction is large or the Reynolds number is increased.
+	
+
+\section{References}
+\bibliography{cfd}
+			
+\end{document}
+		

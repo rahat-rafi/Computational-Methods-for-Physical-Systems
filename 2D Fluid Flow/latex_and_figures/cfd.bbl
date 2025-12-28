@@ -1,0 +1,35 @@
+\begin{thebibliography}{1}
+
+\bibitem{koonin}
+S.~E. Koonin and D.~C. Meredith, {\em Computational Physics (Fortran Version)}
+  (Westview Press, 1990).
+
+\bibitem{joseph}
+J. Spurk and N. Aksel, {\em Fluid Mechanics} (Springer-Verlag Berlin
+  Heidelberg, 2008).
+
+\bibitem{white_viscous}
+F.~M. White, {\em Viscous Fluid Flow}, 3 ed. (McGraw--Hill, 2006).
+
+\bibitem{kundu_fluid}
+P.~K. Kundu, I.~M. Cohen, and D.~R. Dowling, {\em Fluid Mechanics}, 5 ed.
+  (Academic Press, 2012).
+
+\bibitem{ferziger_cfd}
+J.~H. Ferziger and M. Peric, {\em Computational Methods for Fluid Dynamics}, 3
+  ed. (Springer, 2002).
+
+\bibitem{wang}
+C.~Y. Wang, ``Exact Solutions of the Steady-State Navier-Stokes Equations,''
+  Annual Review of Fluid Mechanics {\bf 23,} 159--177 (1991).
+
+\bibitem{sahin_squarecyl}
+M. {\c Sahin} and R.~G. Owens, ``A numerical investigation of flow past a
+  square cylinder at low to moderate Reynolds numbers,'' International Journal
+  for Numerical Methods in Fluids {\bf 45,} 69--99 (2004).
+
+\bibitem{schlichting_boundary}
+H. Schlichting and K. Gersten, {\em Boundary-Layer Theory}, 9 ed. (Springer,
+  2017).
+
+\end{thebibliography}
